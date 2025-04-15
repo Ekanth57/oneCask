@@ -1,23 +1,52 @@
 import 'package:flutter/material.dart';
 
+import 'Screens /welcome_Screen.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'One Cask',
-      home: HomeScreen(),
+      theme: ThemeData(
+        fontFamily: 'EB Garamond',
+        textTheme: TextTheme(
+          displayLarge: TextStyle(fontFamily: 'EB Garamond',
+              fontSize: 32, fontWeight: FontWeight.bold),
+          bodyLarge: TextStyle(fontFamily: 'EB Garamond',fontSize: 16),
+          bodyMedium: TextStyle(fontFamily: 'EB Garamond',fontSize: 16),
+        ),
+      ),
+      debugShowCheckedModeBanner: false,
+      home: SplashScreen(),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _navigateToWelcomeScreen();
+  }
+
+  // Function to navigate to the Welcome Screen after a delay
+  void _navigateToWelcomeScreen() {
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => WelcomeScreen()),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,3 +73,5 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+
