@@ -20,7 +20,11 @@
    - The content is dynamically populated from mockup JSON data, ensuring seamless data presentation.
 
 ### 3. **SignIn Screen**
-   - Users can sign in using hardcoded credentials.
+
+   **Sign-in Credentials:**
+      **Email**: user@gmail.com
+      **Password**: password123
+   - Users can sign in using hardcoded credentials(Please use email:user@gmail.com and Password: password123 to sign in to the app).
    - Upon successful login, the user is redirected to the **My Collection** screen.
    - Once logged in, the app prevents users from navigating back to the SignIn screen.
 
@@ -31,7 +35,7 @@
 ### 5. **Offline Data Handling**
    - The app fetches mockup JSON data from a local asset (`assets/data` folder).
    - Even when the device is offline, the app allows users to view previously fetched data.
-   - The app will refresh the data when the internet connection is restored.
+   - The refershing of the app whn the internet is restored cannot be completd due to time constraints 
 
 ### 6. **State Management with BLoC**
    - The app employs the **BLoC (Business Logic Component)** pattern for state management.
