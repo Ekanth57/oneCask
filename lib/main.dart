@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:onecask/Screens%20/welcome_Screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import 'Screens /welcome_Screen.dart';
+import 'Authentication /presentation/signinPage.dart';
+import 'Collection/application /bottle_bloc.dart';
+import 'Collection/application /bottle_event.dart';
+import 'Collection/presentation/myCollectionPage.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -13,14 +20,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'EB Garamond',
         textTheme: TextTheme(
-          displayLarge: TextStyle(fontFamily: 'EB Garamond',
-              fontSize: 32, fontWeight: FontWeight.bold),
-          bodyLarge: TextStyle(fontFamily: 'EB Garamond',fontSize: 16),
-          bodyMedium: TextStyle(fontFamily: 'EB Garamond',fontSize: 16),
+          displayLarge: TextStyle(fontFamily: 'EB Garamond', fontSize: 32, fontWeight: FontWeight.bold),
+          bodyLarge: TextStyle(fontFamily: 'EB Garamond', fontSize: 16),
+          bodyMedium: TextStyle(fontFamily: 'EB Garamond', fontSize: 16),
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: BlocProvider(
+        create: (context) => BottleBloc()..add(FetchBottlesEvent()),
+        child: SplashScreen(),  // Show SplashScreen initially
+      ),
     );
   }
 }
@@ -34,16 +43,25 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    _navigateToWelcomeScreen();
+    _checkSignInStatus();
   }
 
-  // Function to navigate to the Welcome Screen after a delay
-  void _navigateToWelcomeScreen() {
+  void _checkSignInStatus() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool isSignedIn = prefs.getBool('isSignedIn') ?? false;
+
     Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => WelcomeScreen()),
-      );
+      if (isSignedIn) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => MyCollectionScreen()),
+        );
+      } else {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => WelcomeScreen()),
+        );
+      }
     });
   }
 
@@ -73,5 +91,3 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
-
-

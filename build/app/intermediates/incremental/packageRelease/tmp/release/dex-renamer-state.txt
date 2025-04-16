@@ -1,0 +1,4 @@
+#Tue Apr 15 13:28:09 BST 2025
+base.0=/Users/ekanth/Downloads/oneCask/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

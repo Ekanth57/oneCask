@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../Authentication /presentation/signinPage.dart';
+import '../Collection/application /bottle_bloc.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Check if the BottleBloc is available
+    try {
+      BlocProvider.of<BottleBloc>(context); // Try accessing the BottleBloc
+    } catch (e) {
+      print("Error: $e");  // If it's not available, it will print the error
+    }
     return Scaffold(
       backgroundColor: Colors.black,
       body: Container(
@@ -38,7 +46,7 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 20),
                     Text(
-                      'Text text text', // Placeholder text
+                      'One Cask at a Time', // Placeholder text
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.white.withOpacity(0.7),

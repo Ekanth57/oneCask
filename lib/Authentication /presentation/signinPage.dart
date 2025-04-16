@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:onecask/Collection/presentation/myCollectionPage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../../Collection/presentation/myCollectionPage.dart';
+
 class SignInScreen extends StatefulWidget {
   @override
   _SignInScreenState createState() => _SignInScreenState();
@@ -10,11 +12,37 @@ class _SignInScreenState extends State<SignInScreen> {
   final _passwordController = TextEditingController();
   bool _obscurePassword = true;
 
+  // Hardcoded values for email and password
+  final String _hardcodedEmail = 'user@gmail.com';
+  final String _hardcodedPassword = 'password123';
+
   // Function to toggle the visibility of the password
   void _togglePasswordVisibility() {
     setState(() {
       _obscurePassword = !_obscurePassword;
     });
+  }
+
+  // Function to handle sign-in
+  Future<void> _signIn() async {
+    // Check if the email and password match the hardcoded values
+    if (_emailController.text.trim() == _hardcodedEmail &&
+        _passwordController.text.trim() == _hardcodedPassword) {
+      // Save sign-in status to SharedPreferences
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setBool('isSignedIn', true);
+
+      // Navigate to the MyCollectionScreen
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => MyCollectionScreen()),
+      );
+    } else {
+      // Show an error message if credentials are incorrect
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Invalid email or password')),
+      );
+    }
   }
 
   @override
@@ -50,7 +78,7 @@ class _SignInScreenState extends State<SignInScreen> {
             // Email input field
             TextField(
               controller: _emailController,
-              style: TextStyle(color: Colors.amber),
+              style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 labelText: 'Email',
                 labelStyle: TextStyle(color: Colors.amber),
@@ -101,11 +129,7 @@ class _SignInScreenState extends State<SignInScreen> {
             Container(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => MyCollectionScreen()),
-                  );                },
+                onPressed: _signIn,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.amber,
                   padding: EdgeInsets.symmetric(vertical: 16),
@@ -124,7 +148,6 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             SizedBox(height: 20),
 
-            // Forgot password and can't sign-in links
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -138,7 +161,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 SizedBox(width: 5),
                 TextButton(
                   onPressed: () {
-                    // Implement recover password logic here
+                    // Implement password recovery functionality here
                   },
                   child: Text(
                     'Recover password',

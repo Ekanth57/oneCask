@@ -1,0 +1,174 @@
+{
+  "bottles": [
+    {
+      "id": 1,
+      "name": "Springbank 1992",
+      "description": "A rare bottle of Springbank, distilled in 1992 and bottled in 2022. Known for its rich, smoky flavor.",
+      "image": "assets/images/bottle.png",
+      "quantity": "112/158",
+      "distillery": "Springbank Distillery",
+      "region": "Campbeltown",
+      "country": "Scotland",
+      "type": "Single Malt",
+      "age": "30 Years",
+      "filled": "1992",
+      "bottled": "2022",
+      "cask_number": "2504",
+      "abv": "46%",
+      "size": "700ml",
+      "finish": "Long and Spicy",
+      "tasting_notes": {
+        "nose": "A rich and smoky nose with hints of oak and vanilla.",
+        "palate": "Full-bodied with flavors of caramel, dried fruit, and spices.",
+        "finish": "A long and smooth finish with lingering smoke."
+      },
+      "history": [
+        {
+          "date": "2022-02-10",
+          "event": "Bottle Purchased",
+          "details": "Purchased at a special auction in Scotland."
+        },
+        {
+          "date": "2021-05-15",
+          "event": "Bottle Opened",
+          "details": "First taste of the bottle, shared with friends."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Macallan",
+      "description": "A prestigious bottle of Macallan 18, known for its smoothness and richness. A true connoisseur's choice.",
+      "image": "assets/images/bottle.png",
+      "quantity": "50/100",
+      "distillery": "Macallan Distillery",
+      "region": "Speyside",
+      "country": "Scotland",
+      "type": "Single Malt",
+      "age": "18 Years",
+      "filled": "2003",
+      "bottled": "2021",
+      "cask_number": "5432",
+      "abv": "43%",
+      "size": "700ml",
+      "finish": "Rich and Smooth",
+      "tasting_notes": {
+        "nose": "A smooth nose with hints of dried fruit, chocolate, and oak.",
+        "palate": "Smooth and creamy with flavors of chocolate, nuts, and dried fruits.",
+        "finish": "A rich and smooth finish with lingering sweetness."
+      },
+      "history": [
+        {
+          "date": "2021-11-01",
+          "event": "Bottle Purchased",
+          "details": "Purchased from a premium whisky retailer."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Glenfiddich",
+      "description": "A smooth and aged Glenfiddich, perfect for those who appreciate elegance in their whisky.",
+      "image": "assets/images/bottle.png",
+      "quantity": "30/50",
+      "distillery": "Glenfiddich Distillery",
+      "region": "Speyside",
+      "country": "Scotland",
+      "type": "Single Malt",
+      "age": "21 Years",
+      "filled": "1999",
+      "bottled": "2020",
+      "cask_number": "1234",
+      "abv": "40%",
+      "size": "700ml",
+      "finish": "Smooth and Fruity",
+      "tasting_notes": {
+        "nose": "Sweet aromas of fruitcake, vanilla, and a touch of oak.",
+        "palate": "Complex and fruity, with notes of dried fruits, honey, and a hint of spice.",
+        "finish": "A smooth, sweet finish with a lingering warmth."
+      },
+      "history": [
+        {
+          "date": "2020-08-05",
+          "event": "Bottle Purchased",
+          "details": "Purchased from an online retailer specializing in rare whiskies."
+        },
+        {
+          "date": "2021-12-20",
+          "event": "Bottle Opened",
+          "details": "Shared with close friends during a festive gathering."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Glenlivet",
+      "description": "A smooth and floral Glenlivet, perfect for those new to single malt whisky. A refreshing and delicate taste.",
+      "image": "assets/images/bottle.png",
+      "quantity": "150/200",
+      "distillery": "Glenlivet Distillery",
+      "region": "Speyside",
+      "country": "Scotland",
+      "type": "Single Malt",
+      "age": "12 Years",
+      "filled": "2008",
+      "bottled": "2020",
+      "cask_number": "9873",
+      "abv": "40%",
+      "size": "700ml",
+      "finish": "Fruity and Light",
+      "tasting_notes": {
+        "nose": "A light nose with hints of apple and citrus.",
+        "palate": "Smooth with flavors of vanilla, honey, and a touch of oak.",
+        "finish": "A fresh, fruity finish with a hint of spice."
+      },
+      "history": [
+        {
+          "date": "2020-06-10",
+          "event": "Bottle Purchased",
+          "details": "Purchased from a local whisky retailer in London."
+        },
+        {
+          "date": "2021-04-15",
+          "event": "Bottle Opened",
+          "details": "Shared with family at a special gathering."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Lagavulin",
+      "description": "A powerful, peated Lagavulin with intense smoky flavors. A true whisky lover's choice, known for its complexity.",
+      "image": "assets/images/bottle.png",
+      "quantity": "75/120",
+      "distillery": "Lagavulin Distillery",
+      "region": "Islay",
+      "country": "Scotland",
+      "type": "Single Malt",
+      "age": "16 Years",
+      "filled": "2005",
+      "bottled": "2021",
+      "cask_number": "2021",
+      "abv": "43%",
+      "size": "700ml",
+      "finish": "Long and Peaty",
+      "tasting_notes": {
+        "nose": "An intense nose with rich peat smoke and hints of iodine.",
+        "palate": "Full-bodied with flavors of dark chocolate, smoked wood, and a touch of brine.",
+        "finish": "A long, smoky finish with lingering notes of ash and sea salt."
+      },
+      "history": [
+        {
+          "date": "2021-01-20",
+          "event": "Bottle Purchased",
+          "details": "Bought from a special whisky shop during a trip to Islay."
+        },
+        {
+          "date": "2021-10-01",
+          "event": "Bottle Opened",
+          "details": "Shared with friends during a whisky tasting event."
+        }
+      ]
+    }
+  ]
+}
