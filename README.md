@@ -1,63 +1,60 @@
-Flutter Test Task: My Collection App
+# One Cask App - Flutter Test Task
 
-Overview
+## Overview
 
-This is a Flutter application that allows users to view their collection of bottles. The app includes the following features:
+**One Cask** is a Flutter-based mobile application that allows users to manage and view their collection of bottles. The app offers various features including browsing the collection, viewing detailed information for each bottle, signing in for a personalized experience, and handling offline data. It is built using the **BLoC pattern** for state management, ensuring the app's scalability and maintainability.
 
-A collection screen displaying bottles with details.
-A bottle detail screen with multiple tabs (Details, Tasting Notes, History).
-A SignIn screen, where users can sign in to access the collection.
-Offline support using mockup JSON data.
-BLoC pattern for state management to manage the state of the bottles.
+---
 
+## Features Implemented
 
-Features Implemented
+### 1. **My Collection Screen**
+   - Displays a grid of bottles with essential details such as name, quantity, and image.
+   - Users can tap on any bottle to view more detailed information on the **Bottle Detail Screen**.
 
-1. My Collection Screen
-Displays a list of bottles in a grid format.
-Each item in the collection can be tapped to view more details on the Bottle Detail Screen.
+### 2. **Bottle Detail Screen**
+   - Displays detailed information about a selected bottle, including:
+     - **Details**: Information like distillery, age, type, etc.
+     - **Tasting Notes**: Descriptions of the bottle’s tasting experience.
+     - **History**: Timeline of events related to the bottle.
+   - The content is dynamically populated from mockup JSON data, ensuring seamless data presentation.
 
-2. Bottle Detail Screen
-Displays details of a selected bottle, including tabs for:
-Details: Information about the bottle.
-Tasting Notes: Notes about the bottle’s taste.
-History: Events related to the bottle.
-The content of these sections is populated from mockup JSON data.
+### 3. **SignIn Screen**
+   - Users can sign in using hardcoded credentials.
+   - Upon successful login, the user is redirected to the **My Collection** screen.
+   - Once logged in, the app prevents users from navigating back to the SignIn screen.
 
-3. SignIn Screen
-Allows users to sign in using hardcoded credentials.
-After sign-in, users are redirected to the My Collection screen.
-The app prevents back navigation once the user is signed in.
+### 4. **SignOut Flow**
+   - Users can sign out via a **sign-out dialog**, with a confirmation prompt.
+   - After signing out, the app redirects users to the **SignIn Screen** and disables back navigation to ensure a clean state.
 
-4. SignOut Flow
-A dialog appears when users try to sign out, asking for confirmation.
-After sign-out, users are redirected to the SignIn Screen, and back navigation is disabled.
+### 5. **Offline Data Handling**
+   - The app fetches mockup JSON data from a local asset (`assets/data` folder).
+   - Even when the device is offline, the app allows users to view previously fetched data.
+   - The app will refresh the data when the internet connection is restored.
 
-5. Offline Data Handling
-The app fetches mockup JSON data from a local asset and stores it in the app.
-When the app is offline, it allows users to interact with the fetched data
+### 6. **State Management with BLoC**
+   - The app employs the **BLoC (Business Logic Component)** pattern for state management.
+   - Using BLoC ensures that the state of the bottle data (loading, success, and error states) is efficiently managed and communicated across the app's UI components.
 
-6. State Management with BLoC
-The app uses the BLoC pattern to manage the state of bottles.
-State is managed and communicated between different widgets, ensuring the app responds to changes in data like loading, success, or error states.
-Packages Used
+---
 
-1. flutter_bloc
-Purpose: Used for state management with BLoC pattern.
-Why: Flutter’s BLoC package allows us to handle state in a scalable and maintainable way. We used it to manage the state of fetching and displaying bottle data.
+## Packages Used
 
-2. flutter_launcher_icons
-Purpose: To generate app icons for both Android and iOS platforms.
-Why: This package simplifies the process of setting up app icons for different screen sizes on both platforms. It automates the generation of various icon sizes needed for both platforms.
+### 1. **flutter_bloc**
+   - **Purpose**: Used for state management with the BLoC pattern.
+   - **Why**: The **flutter_bloc** package facilitates the separation of business logic from UI code, making it easier to manage states such as loading, success, and error across the app.
 
-3. shared_preferences
-Purpose: Used for storing and retrieving simple data (e.g., sign-in status).
-Why: This package allows us to store key-value pairs in a simple way to handle user authentication state and app preferences.
+### 2. **flutter_launcher_icons**
+   - **Purpose**: Generates app icons for both **Android** and **iOS** platforms.
+   - **Why**: This package simplifies the process of creating and configuring the required icon sizes for different screen densities and devices on both platforms.
 
-4. flutter_svg
-Purpose: To display SVG files in the app (for bottom navigation icons).
-Why: SVG images are scalable and can be resized without losing quality, which is perfect for responsive design.
-How to Run the Project
+### 3. **shared_preferences**
+   - **Purpose**: Stores and retrieves simple key-value data, such as the sign-in status.
+   - **Why**: The **shared_preferences** package allows us to maintain user authentication state (whether a user is signed in or not) between app sessions.
 
-The app uses mockup data (in assets/data) for the bottles. During development, this data can be manually edited to test different scenarios.
+### 4. **flutter_svg**
+   - **Purpose**: To display **SVG** files in the app (used for bottom navigation icons).
+   - **Why**: **SVG** images are scalable and don’t lose quality when resized, making them ideal for responsive design across multiple screen sizes and resolutions.
 
+---
